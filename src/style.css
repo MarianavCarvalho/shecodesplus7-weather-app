@@ -1,7 +1,40 @@
+body{
+color: black;
+font-family: 'Poppins', sans-serif;
+line-height: normal;
+}
+
+
 .appContainer {
 max-width: 600px;
 margin:50px auto;
 padding: 20px;
 border: 1px solid #dadde1;
 border-radius: 6px;
+}
+
+.col-6{
+    margin-top: 20px;
+    padding: 12px;
+}
+
+.cityData {
+    text-align: right;
+}
+
+.date{
+    font-size: 15px;
+}
+
+p{
+    display:inline;
+    font-size: 30px;
+
+}
+li{
+    list-style: none;  
+}
+
+footer{
+text-align: center;
 }
