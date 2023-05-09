@@ -31,8 +31,14 @@ p{
     font-size: 30px;
 
 }
-li{
+ul{
     list-style: none;  
+    text-transform: capitalize;
+}
+
+.leftList {
+    text-align: left;
+    padding: 0px;
 }
 
 footer{
