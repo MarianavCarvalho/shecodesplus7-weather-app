@@ -8,11 +8,14 @@ line-height: normal;
 .appContainer {
 max-width: 600px;
 margin:50px auto;
-padding: 20px;
+padding: 20px 15px;
 border: 1px solid #dadde1;
 border-radius: 6px;
 }
-
+ 
+.columns{
+    margin:0 20px;
+}
 .col-6{
     margin-top: 20px;
     padding: 12px;
@@ -22,13 +25,21 @@ border-radius: 6px;
     text-align: right;
 }
 
+.leftList {
+    text-align: left;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 28px;
+}
 .date{
-    font-size: 15px;
+    font-size: 18px;
 }
 
 p{
     display:inline;
-    font-size: 30px;
+    font-size: 28px;
 
 }
 ul{
@@ -36,11 +47,10 @@ ul{
     text-transform: capitalize;
 }
 
-.leftList {
-    text-align: left;
-    padding: 0px;
+.button {
+    text-align: center;
 }
 
-footer{
+footer { 
 text-align: center;
 }
