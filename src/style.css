@@ -48,6 +48,14 @@ ul{
     padding-left: 0;
 }
 
+a {
+    color: black;
+    font-size: 28px;
+text-decoration: none;
+    cursor: default;
+}
+
+
 .button {
     text-align: center;
 }

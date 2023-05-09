@@ -20,6 +20,8 @@ function showTemperature(response){
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
+  celciusTemperature = response.data.temperature.current;
+
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.city;
 
@@ -54,11 +56,35 @@ function handleSearch(event){
   search(cityInputElement.value)
 }
 
-search("Lisbon")
+function displayFahrenheitTemperature(event){
+  event.preventDefault();
+let temperatureElement = document.querySelector("#temperature");
+let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+celciusLink.classList.remove("active");
+fahrenheitLink.classList.add("active");
+}
+
+function displayCelciusTemperature(event){
+   event.preventDefault();
+   let temperatureElement = document.querySelector("#temperature");
+   temperatureElement.innerHTML = Math.round(celciusTemperature);
+
+   celciusLink.classList.add("active");
+fahrenheitLink.classList.remove("active");
+}
+
+let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
 
 
+let fahrenheitLink = document.querySelector("#fahrenheit")
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
+let celciusLink = document.querySelector("#celcius")
+celciusLink.addEventListener("click", displayCelciusTemperature);
 
+search("Lisbon")
