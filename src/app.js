@@ -17,7 +17,6 @@ return `${day} ${hours}:${minutes}`;
 
 
 function showTemperature(response){
-  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
@@ -43,11 +42,23 @@ iconElement.setAttribute("src" , `http://shecodes-assets.s3.amazonaws.com/api/we
 iconElement.setAttribute("alt" , response.data.condition.description);
 }
 
-
+function search(query){
 let apiKey = "a1b283feoeccefb140t55b69080a1da6";
-let query = "Lisbon";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
-
 axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSearch(event){
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value)
+}
+
+search("Lisbon")
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSearch);
+
+
 
 
