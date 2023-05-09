@@ -48,7 +48,7 @@ ul{
     padding-left: 0;
 }
 
-a {
+.cityData a {
     color: black;
     font-size: 28px;
 text-decoration: none;
