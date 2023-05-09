@@ -25,7 +25,7 @@ border-radius: 6px;
     text-align: right;
 }
 
-.leftList {
+.leftList .propertiesList {
     text-align: left;
     padding: 0px;
 }
@@ -45,6 +45,7 @@ p{
 ul{
     list-style: none;  
     text-transform: capitalize;
+    padding-left: 0;
 }
 
 .button {
