@@ -63,7 +63,8 @@ text-decoration: none;
 
 .forecast {
     text-align: center;
-    margin: 12px;
+    margin: 15px 0;
+    padding: 0;
     
 }
 .forecastDays {
@@ -74,6 +75,10 @@ text-decoration: none;
     font-size: 14px;
 }
 
+.col-2 {
+    display: block;
+    padding: 0;
+}
 
 footer { 
 text-align: center;

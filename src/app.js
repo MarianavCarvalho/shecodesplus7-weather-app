@@ -15,23 +15,43 @@ if (minutes < 10){
 return `${day} ${hours}:${minutes}`;
 }
 
-function showForecast(){
-  let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
+function formatDay(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach (function (day) {
+  return days[day];
+}
+
+function getForecast(query){
+  let apiKey = "a1b283feoeccefb140t55b69080a1da6";
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(showForecast);
+}
+
+
+function showForecast(response){
+  let forecastElement = document.querySelector("#forecast");
+ 
+  let forecast = response.data.daily;
+  
+
+  let forecastHTML = `<div class="row forecast">`;
+ forecast.forEach(function (forecastDay, index) {
+  
+     if (index < 6){
     forecastHTML = forecastHTML + 
     `
      <div class="col-2">
-    <div class="forecastDays" > ${day} </div>
-    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" alt="" width=""/>
+    <div class="forecastDays" > ${formatDay(forecastDay.time)} </div>
+    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="" width="85"/>
          <div class="forecastVariationTemperature">
-    <span class="minTemperature"> 12º /</span>
-    <span class="maxTemperature"> 18º</span>
+    <span class="minTemperature">${Math.round(forecastDay.temperature.minimum)}º /</span>
+    <span class="maxTemperature">${Math.round(forecastDay.temperature.maximum)}º</span>
          </div>   
         </div>
     `;
+    }
     } );
 
     forecastHTML = forecastHTML + `</div>`
@@ -66,6 +86,8 @@ currentDate.innerHTML = formatDate(response.data.time * 1000);
 let iconElement = document.querySelector("#icon");
 iconElement.setAttribute("src" , `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`)
 iconElement.setAttribute("alt" , response.data.condition.description);
+
+getForecast(response.data.city);
 }
 
 function search(query){
@@ -112,4 +134,3 @@ let celciusLink = document.querySelector("#celcius")
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Lisbon");
-showForecast();
