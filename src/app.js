@@ -15,6 +15,30 @@ if (minutes < 10){
 return `${day} ${hours}:${minutes}`;
 }
 
+function showForecast(){
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach (function (day) {
+    forecastHTML = forecastHTML + 
+    `
+     <div class="col-2">
+    <div class="forecastDays" > ${day} </div>
+    <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" alt="" width=""/>
+         <div class="forecastVariationTemperature">
+    <span class="minTemperature"> 12º /</span>
+    <span class="maxTemperature"> 18º</span>
+         </div>   
+        </div>
+    `;
+    } );
+
+    forecastHTML = forecastHTML + `</div>`
+    forecastElement.innerHTML = forecastHTML;
+
+}
+
 
 function showTemperature(response){
   let temperatureElement = document.querySelector("#temperature");
@@ -87,4 +111,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celciusLink = document.querySelector("#celcius")
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
-search("Lisbon")
+search("Lisbon");
+showForecast();
