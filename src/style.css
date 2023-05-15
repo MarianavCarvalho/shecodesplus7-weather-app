@@ -37,15 +37,17 @@ h1 {
     font-size: 18px;
 }
 
-p{
+p, #celcius{
     display:inline;
     font-size: 28px;
+    padding-right: 5px;
 
 }
 ul{
     list-style: none;  
     text-transform: capitalize;
     padding-left: 0;
+    padding-right: 5px;
     margin-bottom: 0;
 }
 
@@ -78,6 +80,11 @@ text-decoration: none;
 .col-2 {
     display: block;
     padding: 0;
+}
+
+.maxTemperature{
+    font-size: larger;
+    font-weight: 500;
 }
 
 footer { 

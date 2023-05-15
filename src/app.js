@@ -46,8 +46,9 @@ function showForecast(response){
     <div class="forecastDays" > ${formatDay(forecastDay.time)} </div>
     <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="" width="85"/>
          <div class="forecastVariationTemperature">
-    <span class="minTemperature">${Math.round(forecastDay.temperature.minimum)}º /</span>
-    <span class="maxTemperature">${Math.round(forecastDay.temperature.maximum)}º</span>
+         <span class="maxTemperature">${Math.round(forecastDay.temperature.maximum)}º </span>
+    <span class="minTemperature">/ ${Math.round(forecastDay.temperature.minimum)}º</span>
+    
          </div>   
         </div>
     `;
@@ -102,23 +103,13 @@ function handleSearch(event){
   search(cityInputElement.value)
 }
 
-function displayFahrenheitTemperature(event){
-  event.preventDefault();
-let temperatureElement = document.querySelector("#temperature");
-let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-
-celciusLink.classList.remove("active");
-fahrenheitLink.classList.add("active");
-}
 
 function displayCelciusTemperature(event){
    event.preventDefault();
    let temperatureElement = document.querySelector("#temperature");
    temperatureElement.innerHTML = Math.round(celciusTemperature);
 
-   celciusLink.classList.add("active");
-fahrenheitLink.classList.remove("active");
+  
 }
 
 let celciusTemperature = null;
@@ -127,8 +118,6 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
 
 
-let fahrenheitLink = document.querySelector("#fahrenheit")
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celciusLink = document.querySelector("#celcius")
 celciusLink.addEventListener("click", displayCelciusTemperature);
