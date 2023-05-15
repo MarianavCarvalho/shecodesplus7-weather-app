@@ -14,7 +14,7 @@ border-radius: 6px;
 }
  
 .columns{
-    margin:0 20px;
+    margin:0 10px;
 }
 .col-6{
     margin-top: 20px;
@@ -46,6 +46,7 @@ ul{
     list-style: none;  
     text-transform: capitalize;
     padding-left: 0;
+    margin-bottom: 0;
 }
 
 .cityData a {
@@ -60,6 +61,21 @@ text-decoration: none;
     text-align: center;
 }
 
+.forecast {
+    text-align: center;
+    margin: 12px;
+    
+}
+.forecastDays {
+    font-size: 18px;
+    font-weight: 500;
+}
+.forecastVariationTemperature{
+    font-size: 14px;
+}
+
+
 footer { 
 text-align: center;
 }
+
